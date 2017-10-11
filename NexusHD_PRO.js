@@ -224,7 +224,7 @@
         if ((document.getElementById("info_block").innerText.match(/\[签到\]/))) {
             signIn();
         }
-        document.getElementsByClassName("medium")[2].childNodes[0].data = "当前时间：" + getDate();
+        // document.getElementsByClassName("medium")[1].childNodes[2].data = "] 当前时间：" + getDate();
     }
 
     const setCookie = (name, value, days = 7, path = '/') => {
@@ -242,7 +242,6 @@
     const deleteCookie = (name, path) => {
         setCookie(name, '', -1, path);
     };
-
 
     var tryFirstDiv = document.getElementsByTagName("div")[0];
     if (tryFirstDiv !== undefined && tryFirstDiv !== null) {

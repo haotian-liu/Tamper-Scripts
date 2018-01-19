@@ -13,11 +13,11 @@
 
     let today = new Date().getDate().toString();
 
-    let sleep = (ms) => {
+    const sleep = (ms) => {
         return new Promise(resolve => setTimeout(resolve, ms));
     };
 
-    let getBearerAuth = () => {
+    const getBearerAuth = () => {
         let accessToken = localStorage.getItem('accessToken');
         if (accessToken === null) {
             alert('access token not found!');
@@ -26,7 +26,7 @@
         return accessToken.slice(4);
     };
 
-    let signin = () => {
+    const signin = () => {
         var http = new XMLHttpRequest();
         http.open("POST", "https://api-v2.cc98.org/me/signin", true);
         http.setRequestHeader("Content-type", "application/json");
@@ -34,7 +34,7 @@
         http.send("嘻嘻嘻！");
     };
 
-    async function checkSignin() {
+    const checkSignin = async () => {
         if (localStorage.getItem('last_signin') === today) {
             return true;
         }
@@ -54,7 +54,7 @@
         http.open("GET", "https://api-v2.cc98.org/me/signin", true);
         http.setRequestHeader("Authorization", getBearerAuth());
         http.send();
-    }
+    };
 
     checkSignin();
 })();
